@@ -23,13 +23,13 @@ def dodaj(response):
         mbrd = response.POST.get("mbrd")
         cpu = response.POST.get("cpu")
         ram = response.POST.get("ram")
-        cdrom = response.POST.getlist("cdrom")
+        cdrom = response.POST.get("cdrom")
         disc = response.POST.get("disc")
         gpu = response.POST.get("gpu")
         sbrd = response.POST.get("sbrd")
         psu = response.POST.get("psu")
         ncu = response.POST.get("ncu")
-        ison = response.POST.getlist("ison")
+        ison = response.POST.get("ison")
         if cdrom == 'clicked':
             cdrom = True
         else:
