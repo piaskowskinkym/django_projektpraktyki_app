@@ -9,5 +9,6 @@ urlpatterns =[
     path("s2/", views.s2, name="s2"),
     path("s3/", views.s3, name="s3"),
     path("s4/", views.s4, name="s4"),
-    path("dodaj/", views.dodaj, name="dodaj")
+    path("dodaj/", views.dodaj, name="dodaj"),
+    path("", views.home, name="home"),
 ]

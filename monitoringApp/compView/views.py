@@ -10,6 +10,9 @@ def s105(response):
 
     cr = Computer.objects.filter(classR = "3")
     return render(response, "compView/sala105.html", {"cr":cr})  
+def home(response):
+
+    return render(response, "compView/home.html", {})  
     
 def s117(response):
 
