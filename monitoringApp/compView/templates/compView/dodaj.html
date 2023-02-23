@@ -1,95 +1,23 @@
 {% extends 'compView/base.html' %}
-<style>
-  
-</style>
-{% block title %} Sala101{% endblock %}
+
+{% block title %}Dodaj Komputer{% endblock %}
+{% load crispy_forms_tags %}
 {% block content %}
+<div class=" p-4">
+
 <h3>Dodaj Komputer</h3>
-    <form method="POST" action="/dodaj/" class="form-group">
-    <div>
+
+
+<div>&nbsp;</div>
+<div class=" ">
+    <form method="post" action="/dodaj/" class="form-group p-60  w-25 m-50" >
         {% csrf_token %}
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-            <label class="input-group-text" for="inputGroupSelect01">Sala</label>
-            </div>
-            <select class="custom-select" name="select" id="inputGroupSelect01">
-                <option selected>Wybierz Klasę</option>
-                {%for class in cr%}
-                    <option name="{{class.room}}" value="{{class.room}}">{{class.room}}</option>
-                {% endfor %}
-            </select>
-        </div>
-        
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Numer</span>
-            </div>
-            <input type="text" name="numer" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Płyta Główna</span>
-            </div>
-            <input type="text" name="mbrd" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Procesor</span>
-            </div>
-            <input type="text" name="cpu" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Ram</span>
-            </div>
-            <input type="text" name="ram" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Stacja dyskietek</span>
-            </div>
-            <input type="checkbox" name="cdrom" value="clicked" class="form-control" name="Stacja dyskietek" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Dysk twardy</span>
-            </div>
-            <input type="text" name="disc" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Karta Graficzna</span>
-            </div>
-            <input type="text" name="gpu" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Karta Dźwiękowa</span>
-            </div>
-            <input type="text" name="sbrd" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Zasilacz</span>
-            </div>
-            <input type="text" name="psu" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Karta sieciowa</span>
-            </div>
-            <input type="text" name="ncu" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-        <div class="input-group input-group-sm mb-3 w-25 ">
-            <div class="input-group-prepend">
-                <span class="input-group-text" id="inputGroup-sizing-sm">Włączony?</span>
-            </div>
-            <input type="checkbox" name="ison" value="clicked" class="form-control" name="Stacja dyskietek" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
-        </div>
-
-
-        
-        <button type="submit", name="addComputer", value="addComputer", class="btn btn-success">Save</button>
-    </div>
+      
+            {{form|crispy}}
+            <button type="submit", name="dodaj">Dodaj komputer</button>
+     
+       
     </form>
+</div>
+</div>
 {% endblock %}

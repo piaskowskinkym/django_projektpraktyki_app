@@ -2,57 +2,62 @@ from django.shortcuts import render
 from .models import ClassRoom,Computer
 from .forms import ComputerForm
 from django.http import HttpResponseRedirect
+
 # Create your views here.
 
 
-def s101(response):
-    return render(response, "compView/sala101.html", {})  
+def s105(response):
+
+    cr = Computer.objects.filter(classR = "3")
+    return render(response, "compView/sala105.html", {"cr":cr})  
+    
+def s117(response):
+
+    cr = Computer.objects.filter(classR = "4")
+    return render(response, "compView/sala117.html", {"cr":cr})     
 
 def s109(response):
-    return render(response, "compView/sala109.html", {})  
+    cr = Computer.objects.filter(classR = "1")
+    return render(response, "compView/sala109.html", {"cr":cr})  
     
-def s212(response):
-    return render(response, "compView/sala212.html", {})
+def s121(response):
+    cr = Computer.objects.filter(classR = "2")
+    return render(response, "compView/sala121.html", {"cr":cr})
+def s2(response):
+    cr = Computer.objects.filter(classR = "5")
+    return render(response, "compView/sala2.html", {"cr":cr})
+    
+def s3(response):
+    cr = Computer.objects.filter(classR = "6")
+    return render(response, "compView/sala3.html", {"cr":cr})
+    
+def s4(response):
+    cr = Computer.objects.filter(classR = "7")
+    return render(response, "compView/sala4.html", {"cr":cr})
+    
     
 def dodaj(response):
-   
-    cr = ClassRoom.objects.all()        
-    if response.POST.get("addComputer"):
-        classroom = response.POST.get("select")
-        numer = response.POST.get("numer")
-        mbrd = response.POST.get("mbrd")
-        cpu = response.POST.get("cpu")
-        ram = response.POST.get("ram")
-        cdrom = response.POST.get("cdrom")
-        disc = response.POST.get("disc")
-        gpu = response.POST.get("gpu")
-        sbrd = response.POST.get("sbrd")
-        psu = response.POST.get("psu")
-        ncu = response.POST.get("ncu")
-        ison = response.POST.get("ison")
-        if cdrom == 'clicked':
-            cdrom = True
-        else:
-            cdrom = False
-        if ison == 'clicked':
-            ison = True
-        else:
-            ison = False
-       
-        computer = ClassRoom.objects.get(room = classroom)
-        computer.computer_set.create(       classR = classroom, 
-                                            num = numer,
-                                            mbrd = mbrd,
+    if response.method == "POST":
+        form = ComputerForm(response.POST)
+        if form.is_valid():
+            croom = form.cleaned_data["croom"]
+            name = form.cleaned_data["name"]
+            ip = form.cleaned_data["ip"]
+            sys = form.cleaned_data["sys"]
+            cpu = form.cleaned_data["cpu"]
+            ison = form.cleaned_data["ison"]
+
+            computer = ClassRoom.objects.get(room = croom)
+
+            computer.computer_set.create(   
+                                            classR = croom, 
+                                            name = name,
                                             cpu = cpu,
-                                            ram = ram ,
-                                            cdr = cdrom,
-                                            drive = disc,
-                                            gpu = gpu,
-                                            sbrd = sbrd,
-                                            psu = psu,
-                                            ncu = ncu ,
-                                            isOn = ison 
+                                            sys = sys,
+                                            ip = ip,
+                                            isOn = ison
                                             )
 
-  
-    return render(response, "compView/dodaj.html", {"cr":cr})  
+    else:
+        form = ComputerForm()
+    return render(response, "compView/dodaj.html", {"form":form})  

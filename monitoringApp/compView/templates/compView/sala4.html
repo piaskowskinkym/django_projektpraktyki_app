@@ -1,0 +1,333 @@
+{% extends 'compView/base.html' %}
+{% load static %}
+
+{% block title %}Sala 4{% endblock %}
+
+
+
+{% block content %}
+<h3 class="pt-3 ml-3">Sala 4</h3>
+<body>
+    <div class="container pt-3">
+        
+        <div class="row">
+        {%for class in cr%}
+        {%if forloop.counter == 4 %}
+        
+        {% if class.isOn == True %}
+            <button type="button" class="p-3 mb-2 bg-success text-white  text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+            <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    {{class.ip }}<br>
+                    {{class.sys}}<br>
+                    {{class.cpu}}
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <div class="row">
+            
+            
+           {%else%}
+                <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                    <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> 
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                {{class.ip }}<br>
+                                {{class.sys}}<br>
+                                {{class.cpu}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            {%endif%}
+       
+        {% elif forloop.counter == 5 or forloop.counter == 7  or forloop.counter == 9 or forloop.counter == 11  or forloop.counter == 13 %}  
+            {% if class.isOn == True %}
+                <button type="button" class="p-3 mb-2 bg-success text-white  text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        {{class.ip }}<br>
+                        {{class.sys}}<br>
+                        {{class.cpu}}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible">A101</button>
+                <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible">A101</button>
+                
+            
+            {%else%}
+                <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                    <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> 
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                {{class.ip }}<br>
+                                {{class.sys}}<br>
+                                {{class.cpu}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            {%endif%}
+        
+        {% elif forloop.counter == 6 or forloop.counter == 8 or forloop.counter == 10 or forloop.counter == 12 or forloop.counter == 14%}  
+                {% if class.isOn == True %}
+                <button type="button" class="p-3 mb-2 bg-success text-white  text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        {{class.ip }}<br>
+                        {{class.sys}}<br>
+                        {{class.cpu}}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                <div class="row">
+               
+                
+                
+                {%else%}
+                    <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                        <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span> 
+                                    </button>
+                                    </div>
+                                    <div class="modal-body">
+                                    {{class.ip }}<br>
+                                    {{class.sys}}<br>
+                                    {{class.cpu}}
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                {%endif%}
+        {% elif forloop.counter == 15%}
+            {% if class.isOn == True %}
+                <button type="button" class="p-3 mb-2 bg-success text-white  text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        {{class.ip }}<br>
+                        {{class.sys}}<br>
+                        {{class.cpu}}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                
+                <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible">A101</button>
+                
+                
+            
+            {%else%}
+                <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                    <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> 
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                {{class.ip }}<br>
+                                {{class.sys}}<br>
+                                {{class.cpu}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            {%endif%} 
+        {% elif forloop.counter == 18%}    
+            {% if class.isOn == True %}
+                </div>
+                <div class="row">
+                <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible">A101</button>
+                <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible">A101</button>
+                <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible">A101</button>
+                <button type="button" class="p-3 mb-2 bg-success text-white  text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        </div>
+                        <div class="modal-body">
+                        {{class.ip }}<br>
+                        {{class.sys}}<br>
+                        {{class.cpu}}
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            {%else%}
+                <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                    <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> 
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                {{class.ip }}<br>
+                                {{class.sys}}<br>
+                                {{class.cpu}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            {%endif%} 
+        {%else%}
+            {% if class.isOn == True %}
+            <button type="button" class="p-3 mb-2 bg-success text-white text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+            <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    {{class.ip }}<br>
+                    {{class.sys}}<br>
+                    {{class.cpu}}
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            {%else%}
+                <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+                    <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">{{class.name}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span> 
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                {{class.ip }}<br>
+                                {{class.sys}}<br>
+                                {{class.cpu}}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary " data-dismiss="modal">Zamknij</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+            {%endif%}
+       
+       
+        {%endif%}      
+           
+        {% endfor %}
+    </div>
+</body>
+{% endblock %}
+

@@ -1,23 +1,21 @@
-
 {% extends 'compView/base.html' %}
 {% load static %}
 
-{% block title %} Sala109{% endblock %}
+{% block title %} Sala3{% endblock %}
 
 
 
 {% block content %}
-<h3 class="pt-3 ml-3">Sala 109</h3>
+<h3 class="pt-3 ml-3">Sala 3</h3>
 <body>
     <div class="container pt-3">
         
-    
         {%for class in cr%}
-        {%if forloop.counter == 1 %}
-        <button type="button"  class="p-3 mb-2 text-white w-25 text-center m-1 invisible"></button>
-        <button type="button"class="p-3 mb-2 bg-success text-white w-25 text-center m-1 invisible"></button>
+        {%if forloop.counter == 23 %}
+        
+     
         {% if class.isOn == True %}
-            <button type="button" class="p-3 mb-2 bg-success text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+            <button type="button" class="p-3 mb-2 bg-success text-white  text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
             <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -38,6 +36,7 @@
                 </div>
                 </div>
             </div>
+            <button type="button"  class="p-3 mb-2 text-white  text-center m-1 invisible"></button>
             
             {%else%}
                 <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
@@ -61,11 +60,16 @@
                             </div>
                         </div>
                     </div>
+                    
             {%endif%}
        
         {%else%}
+            {%if forloop.counter == 1  %}
+                    <div class="row">
+            {%else%}
+            {%endif%}
             {% if class.isOn == True %}
-            <button type="button" class="p-3 mb-2 bg-success text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
+            <button type="button" class="p-3 mb-2 bg-success text-white text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
             <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -86,6 +90,11 @@
                 </div>
                 </div>
             </div>
+                {%if forloop.counter|divisibleby:4 or  forloop.counter == 20 %}
+                        </div>
+                        <div class="row">
+                {%else%}
+                {%endif%}
             {%else%}
                 <button type="button" class="p-3 mb-2 bg-danger text-white w-25 text-center m-1" data-toggle="modal" data-target="#{{class.name}}">{{class.name}}</button>
                     <div class="modal fade" id="{{class.name}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,18 +117,19 @@
                             </div>
                         </div>
                     </div>
+                    {%if forloop.counter|divisibleby:4 or  forloop.counter == 20 %}
+                    </div>
+                    <div class="row">
+                    {%else%}
+                    {%endif%}
             {%endif%}
        
        
         {%endif%}      
         {% endfor %}
+                       
                         
     </div>
 </body>
 {% endblock %}
-{% block javascript %}
-<script src="{% static 'monitoringApp/script.js'%}"></script>
-
-
-{% endblock javascript %}
 
